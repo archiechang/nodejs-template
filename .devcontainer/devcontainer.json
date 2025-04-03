@@ -1,0 +1,59 @@
+{
+  "name": "local-dev",
+	"dockerComposeFile": [
+		"../docker-compose.yaml"
+	],
+  "workspaceFolder": "/app",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    // "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+  ],
+  // "customizations": {
+  //     "vscode": {
+  //         "extensions": [
+  //           "esbenp.prettier-vscode",
+  //           "dbaeumer.vscode-eslint",
+  //           "christian-kohler.npm-intellisense",
+  //           "christian-kohler.path-intellisense",
+  //           "ms-vscode.live-server",
+  //           "ms-azuretools.vscode-docker",
+  //           "yzhang.markdown-all-in-one",
+  //           "christian-kohler.path-intellisense",
+  //           "Gruntfuggly.todo-tree",
+  //           "redhat.vscode-yaml",
+  //           "ClemensPeters.format-json",
+  //           "ms-azuretools.vscode-docker",
+  //           "sourcegraph.cody-ai",
+  //           "ritwickdey.LiveServer",
+  //           "saoudrizwan.claude-dev"
+  //         ],
+  //           "settings": {
+  //               "editor.tabSize": 2,
+  //               "files.trimTrailingWhitespace": true,
+  //               "files.insertFinalNewline": true,
+  //               "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //               "editor.formatOnSave": true,
+  //               "editor.codeActionsOnSave": {
+  //                   "source.fixAll": "explicit"
+  //                 },
+  //                 "eslint.validate": ["javascript"]
+  //               }
+  //             }
+  //           },
+  "service": "nodejs",
+  // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "vscode",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode",
+      "uid": "1000",
+      "gid": "1000"
+    },
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {}
+  }
+  // "postCreateCommand": "sudo chown -R vscode:vscode /app"
+}
