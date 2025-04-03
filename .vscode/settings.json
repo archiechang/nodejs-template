@@ -1,0 +1,12 @@
+{
+  //////////////
+  // JavaScript設定
+  //////////////
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.configPath": ".prettierrc",
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    // markdownのフォーマットを無効化
+    "editor.formatOnSave": false
+  }
+}
